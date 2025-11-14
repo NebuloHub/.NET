@@ -101,8 +101,8 @@ cd NebuloHub.NET
   
    ```bash
    {
-    "username": "luizhneri12@gmail.com",
-    "password": "Carrinhos@1234"
+    "email": "luizhneri12@gmail.com",
+    "senha": "Carrinhos@1234"
   }
   ```
 

@@ -427,6 +427,13 @@ C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\NuGet.Pro
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\NuGet.Protocol.dll
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\NuGet.Versioning.dll
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\NumSharp.Lite.dll
+C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\OpenTelemetry.dll
+C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\OpenTelemetry.Api.dll
+C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\OpenTelemetry.Api.ProviderBuilderExtensions.dll
+C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\OpenTelemetry.Exporter.Console.dll
+C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\OpenTelemetry.Extensions.Hosting.dll
+C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\OpenTelemetry.Instrumentation.AspNetCore.dll
+C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\OpenTelemetry.Instrumentation.Http.dll
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\Oracle.EntityFrameworkCore.dll
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\Oracle.ManagedDataAccess.dll
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\bin\Debug\net8.0\Protobuf.Text.dll

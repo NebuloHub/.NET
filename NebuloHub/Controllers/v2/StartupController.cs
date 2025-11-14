@@ -1,10 +1,12 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using NebuloHub.Application.DTOs.Request;
 using NebuloHub.Application.DTOs.Response;
 using NebuloHub.Application.UseCase;
 using NebuloHub.Application.Validators;
+using NebuloHub.Domain.Entity;
 using System.Net;
 
 namespace NebuloHub.Controllers.v2
@@ -18,10 +20,14 @@ namespace NebuloHub.Controllers.v2
         private readonly StartupUseCase _startupUseCase;
         private readonly CreateStartupRequestValidator _validationStartup;
 
-        public StartupController(StartupUseCase startupUseCase, CreateStartupRequestValidator validationStartup)
+        // ILogger
+        private readonly ILogger<StartupController> _logger;
+
+        public StartupController(StartupUseCase startupUseCase, CreateStartupRequestValidator validationStartup, ILogger<StartupController> logger)
         {
             _startupUseCase = startupUseCase;
             _validationStartup = validationStartup;
+            _logger = logger;
         }
 
         /// <summary>
@@ -32,7 +38,11 @@ namespace NebuloHub.Controllers.v2
         [ProducesResponseType(typeof(IEnumerable<CreateStartupResponse>), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> GetStartup()
         {
+            _logger.LogInformation("Iniciando busca de todas as startups...");
+
             var startup = await _startupUseCase.GetAllPagedAsync();
+
+            _logger.LogInformation("Busca de startups concluída. {count} registros encontrados.", startup.Count());
 
             var result = startup.Select(d => new
             {
@@ -63,11 +73,16 @@ namespace NebuloHub.Controllers.v2
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> GetStartupById(string cnpj)
         {
+            _logger.LogInformation("Buscando startup com CNPJ {cnpj)}", cnpj);
+
             var startup = await _startupUseCase.GetByIdAsync(cnpj);
             if (startup == null)
+            {
+                _logger.LogWarning("Startup {cnpj} não encontrado.", cnpj);
                 return NotFound();
+            }
 
-
+            _logger.LogInformation("Startup {cnpj} encontrado com sucesso.", cnpj);
             return Ok(startup);
         }
 
@@ -81,9 +96,14 @@ namespace NebuloHub.Controllers.v2
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> PostStartup([FromBody] CreateStartupRequest request)
         {
+            _logger.LogInformation("Iniciando criação do startup {CNPJ}", request.CNPJ);
+
             _validationStartup.ValidateAndThrow(request);
 
             var startupResponse = await _startupUseCase.CreateStartupAsync(request);
+
+            _logger.LogInformation("Startup {CNPJ} criado com sucesso.", startupResponse.CNPJ);
+
             return CreatedAtAction(nameof(GetStartupById), new { cnpj = startupResponse.CNPJ }, startupResponse);
         }
 
@@ -99,10 +119,16 @@ namespace NebuloHub.Controllers.v2
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> PutStartup(string cnpj, [FromBody] CreateStartupRequest request)
         {
+            _logger.LogInformation("Atualizando startup {cnpj}", cnpj);
+
             var updated = await _startupUseCase.UpdateStartupAsync(cnpj, request);
             if (!updated)
+            {
+                _logger.LogWarning("Tentativa de atualizar startup {cnpj}, mas o registro não existe.", cnpj);
                 return NotFound();
+            }
 
+            _logger.LogInformation("Startup {cnpj} atualizado com sucesso.", cnpj);
             return NoContent();
         }
 
@@ -116,10 +142,16 @@ namespace NebuloHub.Controllers.v2
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public async Task<IActionResult> DeleteStartup(string cnpj)
         {
+            _logger.LogInformation("Deletando startup {cnpj}", cnpj);
+
             var deleted = await _startupUseCase.DeleteStartupAsync(cnpj);
             if (!deleted)
+            {
+                _logger.LogWarning("Tentativa de deletar startup {cnpj}, porém não encontrado.", cnpj);
                 return NotFound();
+            }
 
+            _logger.LogInformation("Startup {cnpj} deletada com sucesso.", cnpj);
             return NoContent();
         }
     }

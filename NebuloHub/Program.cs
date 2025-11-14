@@ -1,4 +1,4 @@
-using HealthChecks.UI.Client;
+ï»¿using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +15,7 @@ using NebuloHub.Infraestructure.Context;
 using NebuloHub.Infraestructure.Repositores;
 using NebuloHub.Infraestructure.Repositories;
 using NebuloHub.Services;
+using OpenTelemetry.Trace;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Text;
@@ -27,7 +28,7 @@ var jwtKey = builder.Configuration["Jwt:Key"];
 var jwtIssuer = builder.Configuration["Jwt:Issuer"];
 var jwtAudience = builder.Configuration["Jwt:Audience"];
 
-// Configuração do banco Oracle
+// ConfiguraÃ§Ã£o do banco Oracle
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleNebuloHub")));
 
@@ -40,7 +41,7 @@ builder.Services.AddControllers()
 
 builder.Services.AddEndpointsApiExplorer();
 
-// Registro de dependências
+// Registro de dependÃªncias
 builder.Services.AddScoped<IRepository<Avaliacao>, Repository<Avaliacao>>();
 builder.Services.AddScoped<IRepository<Habilidade>, Repository<Habilidade>>();
 builder.Services.AddScoped<IRepository<Possui>, Repository<Possui>>();
@@ -67,7 +68,7 @@ builder.Services.AddScoped<UsuarioUseCase>();
 builder.Services.AddScoped<AnaliseStartupUseCase>();
 
 
-// Configuração do comportamento API
+// ConfiguraÃ§Ã£o do comportamento API
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;
@@ -153,6 +154,20 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
+
+// OpenTelemetry para Tracing
+builder.Services.AddOpenTelemetry()
+    .WithTracing(t =>
+    {
+        t.AddAspNetCoreInstrumentation()
+         .AddHttpClientInstrumentation()
+
+         .AddSource("Microsoft.EntityFrameworkCore")
+
+         .AddConsoleExporter(); // Exporta para o console
+    });
+
+
 
 var app = builder.Build();
 var versionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();

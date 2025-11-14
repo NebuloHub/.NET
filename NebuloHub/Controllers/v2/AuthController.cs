@@ -14,10 +14,13 @@ namespace NebuloHub.Controllers.v2
         private readonly TokenService _tokenService;
         private readonly UsuarioUseCase _usuarioUseCase;
 
-        public AuthController(TokenService tokenService, UsuarioUseCase usuarioUseCase)
+        private readonly ILogger<AuthController> _logger;
+
+        public AuthController(TokenService tokenService, UsuarioUseCase usuarioUseCase, ILogger<AuthController> logger)
         {
             _tokenService = tokenService;
             _usuarioUseCase = usuarioUseCase;
+            _logger = logger;
         }
 
         /// <summary>
@@ -27,6 +30,8 @@ namespace NebuloHub.Controllers.v2
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
+            _logger.LogInformation("Iniciando login do usuario...");
+
             var usuario = await _usuarioUseCase.LoginAsync(request.Email, request.Senha);
 
             if (usuario == null)

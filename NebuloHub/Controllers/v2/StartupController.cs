@@ -25,21 +25,20 @@ namespace NebuloHub.Controllers.v2
         }
 
         /// <summary>
-        /// Retorna todos os Startup com paginação.
+        /// Retorna todos os Startup.
         /// </summary>
-        /// <param name="page">Número da página (default = 1)</param>
-        /// <param name="pageSize">Quantidade de itens por página (default = 10)</param>
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<CreateStartupResponse>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetStartup([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        public async Task<IActionResult> GetStartup()
         {
-            var startup = await _startupUseCase.GetAllPagedAsync(page, pageSize);
+            var startup = await _startupUseCase.GetAllPagedAsync();
 
             var result = startup.Select(d => new
             {
                 d.CNPJ,
                 d.NomeStartup,
+                d.Video,
                 d.EmailStartup,
                 links = new
                 {
@@ -49,8 +48,6 @@ namespace NebuloHub.Controllers.v2
 
             return Ok(new
             {
-                page,
-                pageSize,
                 totalItems = startup.Count(),
                 items = result
             });

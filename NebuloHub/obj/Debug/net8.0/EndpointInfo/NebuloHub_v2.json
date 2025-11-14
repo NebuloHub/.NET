@@ -1038,29 +1038,7 @@
         "tags": [
           "CRUD Startup"
         ],
-        "summary": "Retorna todos os Startup com paginação.",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Número da página (default = 1)",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Quantidade de itens por página (default = 10)",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
+        "summary": "Retorna todos os Startup.",
         "responses": {
           "200": {
             "description": "OK",
@@ -1352,29 +1330,7 @@
         "tags": [
           "CRUD Usuario"
         ],
-        "summary": "Retorna todos os Usuario com paginação.",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "description": "Número da página (default = 1)",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 1
-            }
-          },
-          {
-            "name": "pageSize",
-            "in": "query",
-            "description": "Quantidade de itens por página (default = 10)",
-            "schema": {
-              "type": "integer",
-              "format": "int32",
-              "default": 10
-            }
-          }
-        ],
+        "summary": "Retorna todos os Usuarios.",
         "responses": {
           "200": {
             "description": "OK",
@@ -1787,11 +1743,13 @@
         "properties": {
           "cnpj": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "example": "O CNPJ deve ter no minimo 14 digitos"
           },
           "video": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "example": "Link de um video ja postado na internet"
           },
           "nomeStartup": {
             "type": "string",
@@ -1862,7 +1820,8 @@
         "properties": {
           "cpf": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "example": "O CPF deve ter no minimo 11 digitos"
           },
           "nome": {
             "type": "string",
@@ -1870,11 +1829,13 @@
           },
           "email": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "example": "email@gmail.com"
           },
           "senha": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "example": "Senha@135"
           },
           "role": {
             "$ref": "#/components/schemas/Role"

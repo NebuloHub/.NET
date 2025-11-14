@@ -25,16 +25,14 @@ namespace NebuloHub.Controllers.v2
         }
 
         /// <summary>
-        /// Retorna todos os Usuario com paginação.
+        /// Retorna todos os Usuarios.
         /// </summary>
-        /// <param name="page">Número da página (default = 1)</param>
-        /// <param name="pageSize">Quantidade de itens por página (default = 10)</param>
         [HttpGet]
         [AllowAnonymous]
         [ProducesResponseType(typeof(IEnumerable<CreateUsuarioResponse>), (int)HttpStatusCode.OK)]
-        public async Task<IActionResult> GetUsuario([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        public async Task<IActionResult> GetUsuario()
         {
-            var usuario = await _usuarioUseCase.GetAllPagedAsync(page, pageSize);
+            var usuario = await _usuarioUseCase.GetAllPagedAsync();
 
             var result = usuario.Select(d => new
             {
@@ -49,8 +47,6 @@ namespace NebuloHub.Controllers.v2
 
             return Ok(new
             {
-                page,
-                pageSize,
                 totalItems = usuario.Count(),
                 items = result
             });

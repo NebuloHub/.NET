@@ -2,6 +2,7 @@
 {
     public class CreateAvaliacaoRequest
     {
+        /// <example>0 a 10</example>
         public long Nota { get; set; }
         public string? Comentario { get; set; }
 

@@ -4,6 +4,24 @@
         <name>NebuloHub</name>
     </assembly>
     <members>
+        <member name="P:NebuloHub.Application.DTOs.Request.CreateAvaliacaoRequest.Nota">
+            <example>0 a 10</example>
+        </member>
+        <member name="P:NebuloHub.Application.DTOs.Request.CreateStartupRequest.CNPJ">
+            <example>O CNPJ deve ter no minimo 14 digitos</example>
+        </member>
+        <member name="P:NebuloHub.Application.DTOs.Request.CreateStartupRequest.Video">
+            <example>Link de um video ja postado na internet</example>
+        </member>
+        <member name="P:NebuloHub.Application.DTOs.Request.CreateUsuarioRequest.CPF">
+            <example>O CPF deve ter no minimo 11 digitos</example>
+        </member>
+        <member name="P:NebuloHub.Application.DTOs.Request.CreateUsuarioRequest.Email">
+            <example>email@gmail.com</example>
+        </member>
+        <member name="P:NebuloHub.Application.DTOs.Request.CreateUsuarioRequest.Senha">
+            <example>Senha@135</example>
+        </member>
         <member name="M:NebuloHub.Application.UseCase.AvaliacaoUseCase.GetAllPagedAsync(System.Int32,System.Int32)">
             <summary>
             Retorna os Avaliacao paginados.
@@ -19,9 +37,9 @@
             Retorna os Possui paginados.
             </summary>
         </member>
-        <member name="M:NebuloHub.Application.UseCase.StartupUseCase.GetAllPagedAsync(System.Int32,System.Int32)">
+        <member name="M:NebuloHub.Application.UseCase.StartupUseCase.GetAllPagedAsync">
             <summary>
-            Retorna os Startup paginados.
+            Retorna todos os Startup.
             </summary>
         </member>
         <member name="M:NebuloHub.Controllers.v1.AuthController.Login(NebuloHub.Controllers.v1.AuthController.LoginRequest)">
@@ -177,12 +195,10 @@
             </summary>
             <param name="id">ID do registro</param>
         </member>
-        <member name="M:NebuloHub.Controllers.v2.StartupController.GetStartup(System.Int32,System.Int32)">
+        <member name="M:NebuloHub.Controllers.v2.StartupController.GetStartup">
             <summary>
-            Retorna todos os Startup com paginação.
+            Retorna todos os Startup.
             </summary>
-            <param name="page">Número da página (default = 1)</param>
-            <param name="pageSize">Quantidade de itens por página (default = 10)</param>
         </member>
         <member name="M:NebuloHub.Controllers.v2.StartupController.GetStartupById(System.String)">
             <summary>
@@ -209,12 +225,10 @@
             </summary>
             <param name="cnpj">ID do registro</param>
         </member>
-        <member name="M:NebuloHub.Controllers.v2.UsuarioController.GetUsuario(System.Int32,System.Int32)">
+        <member name="M:NebuloHub.Controllers.v2.UsuarioController.GetUsuario">
             <summary>
-            Retorna todos os Usuario com paginação.
+            Retorna todos os Usuarios.
             </summary>
-            <param name="page">Número da página (default = 1)</param>
-            <param name="pageSize">Quantidade de itens por página (default = 10)</param>
         </member>
         <member name="M:NebuloHub.Controllers.v2.UsuarioController.GetUsuarioById(System.String)">
             <summary>

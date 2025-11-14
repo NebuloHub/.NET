@@ -8,6 +8,17 @@ namespace NebuloHub.Application.Validators
         public CreateHabilidadeRequestValidator()
         {
 
+            RuleFor(u => u.NomeHabilidade)
+                .NotEmpty()
+                .WithMessage("O Nome é obrigatório.")
+                .MaximumLength(250);
+
+            RuleFor(u => u.TipoHabilidade)
+                .NotEmpty()
+                .WithMessage("O Nome é obrigatório.")
+                .MaximumLength(100);
+
+
         }
     }
 }

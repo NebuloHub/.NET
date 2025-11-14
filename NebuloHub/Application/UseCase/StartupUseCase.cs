@@ -48,25 +48,19 @@ namespace NebuloHub.Application.UseCase
         }
 
         /// <summary>
-        /// Retorna os Startup paginados.
+        /// Retorna todos os Startup.
         /// </summary>
-        public async Task<List<CreateStartupResponse>> GetAllPagedAsync(int page, int pageSize)
+        public async Task<List<CreateStartupResponse>> GetAllPagedAsync()
         {
             var startup = await _repository.GetAllAsync();
-
-            var paged = startup
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new CreateStartupResponse
-                {
-                    CNPJ = u.CNPJ,
-                    NomeStartup = u.NomeStartup,
-                    EmailStartup = u.EmailStartup,
-                    Site = u.Site
-                })
-                .ToList();
-
-            return paged;
+                
+            return startup.Select(u => new CreateStartupResponse
+            {
+                CNPJ = u.CNPJ,
+                NomeStartup = u.NomeStartup,
+                Video = u.Video,
+                EmailStartup = u.EmailStartup
+            }).ToList();
         }
 
         public async Task<CreateStartupResponse?> GetByIdAsync(string cnpj)

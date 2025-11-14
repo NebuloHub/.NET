@@ -53,25 +53,19 @@ namespace NebuloHub.Application.UseCase
             }).ToList();
         }
 
-        public async Task<List<CreateUsuarioResponse>> GetAllPagedAsync(int page, int pageSize)
+        public async Task<List<CreateUsuarioResponse>> GetAllPagedAsync()
         {
             var usuario = await _repository.GetAllAsync();
 
-            var paged = usuario
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .Select(u => new CreateUsuarioResponse
-                {
-                    CPF = u.CPF,
-                    Nome = u.Nome,
-                    Email = u.Email,
-                    Senha = u.Senha,
-                    Role = u.Role,
-                    Telefone = u.Telefone
-                })
-                .ToList();
-
-            return paged;
+            return usuario.Select(u => new CreateUsuarioResponse
+            {
+                CPF = u.CPF,
+                Nome = u.Nome,
+                Email = u.Email,
+                Senha = u.Senha,
+                Role = u.Role,
+                Telefone = u.Telefone
+            }).ToList();
         }
 
         public async Task<CreateUsuarioResponse?> GetByIdAsync(string cpf)

@@ -69,6 +69,8 @@ namespace NebuloHub.Application.UseCase
         {
             var startup = await _context.Startup
                 .Include(u => u.Avaliacoes)
+                .Include(u => u.Possuis)
+                    .ThenInclude(p => p.Habilidade)
                 .FirstOrDefaultAsync(u => u.CNPJ == cnpj);
 
             return new CreateStartupResponse
@@ -82,6 +84,13 @@ namespace NebuloHub.Application.UseCase
                 EmailStartup = startup.EmailStartup,
                 UsuarioCPF = startup.UsuarioCPF,
 
+                Habilidades = startup.Possuis.Select(p => new CreateHabilidadeResponse
+                {
+                    IdHabilidade = p.Habilidade.IdHabilidade,
+                    NomeHabilidade = p.Habilidade.NomeHabilidade,
+                    TipoHabilidade = p.Habilidade.TipoHabilidade
+                }).ToList(),
+
                 Avaliacoes = startup.Avaliacoes.Select(s => new CreateAvaliacaoResponse
                 {
                     IdAvaliacao = s.IdAvaliacao,
@@ -89,6 +98,7 @@ namespace NebuloHub.Application.UseCase
                     Comentario = s.Comentario,
                     UsuarioCPF = s.UsuarioCPF
                 }).ToList()
+
             };
         }
 

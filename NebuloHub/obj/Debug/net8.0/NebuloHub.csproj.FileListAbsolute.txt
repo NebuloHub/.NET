@@ -762,3 +762,4 @@ C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\obj\Debug\net8.0\refint\Ne
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\obj\Debug\net8.0\NebuloHub.pdb
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\obj\Debug\net8.0\NebuloHub.genruntimeconfig.cache
 C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\obj\Debug\net8.0\ref\NebuloHub.dll
+C:\Users\Passos Magicos\Documents\Luiz\.NET\NebuloHub\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

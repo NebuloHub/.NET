@@ -1814,6 +1814,13 @@
               "$ref": "#/components/schemas/CreateAvaliacaoResponse"
             },
             "nullable": true
+          },
+          "habilidades": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateHabilidadeResponse"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

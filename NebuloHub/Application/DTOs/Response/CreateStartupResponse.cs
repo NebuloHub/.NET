@@ -13,6 +13,9 @@
         // Relacionamento
         public string UsuarioCPF { get; set; }
 
+        public List<CreateHabilidadeResponse> Habilidades { get; set; }
+
         public List<CreateAvaliacaoResponse> Avaliacoes { get; set; }
+        
     }
 }

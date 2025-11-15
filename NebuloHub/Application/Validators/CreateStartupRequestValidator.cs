@@ -20,14 +20,10 @@ namespace NebuloHub.Application.Validators
                 .MaximumLength(100);
 
             RuleFor(u => u.EmailStartup)
-               .NotEmpty()
-               .WithMessage("Email é obrigatória.")
-               .MaximumLength(255)
-               .WithMessage("Senha deve ter no máximo 255 caracteres.")
-               .Must(s =>
-                   s.Any(ch => !char.IsLetterOrDigit(ch)) &&    // Pelo menos um caractere especial
-                   s.Length > 11)                                // Maior que 11 caracteres
-               .WithMessage("O Email deve conter um caractere especial e ter mais de 11 caracteres.");
+               .NotEmpty().WithMessage("Email é obrigatória.")
+               .MaximumLength(255).WithMessage("Senha deve ter no máximo 255 caracteres.")
+               .MinimumLength(11).WithMessage("O Email deve conter um caractere especial e ter mais de 11 caracteres.")
+               .EmailAddress().WithMessage("Email inválido.");
 
 
         }

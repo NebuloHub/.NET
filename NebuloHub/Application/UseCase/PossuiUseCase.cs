@@ -11,12 +11,17 @@ namespace NebuloHub.Application.UseCase
     {
         private readonly IRepository<Possui> _repository;
         private readonly AppDbContext _context;
-
+        private IRepository<Possui> @object;
 
         public PossuiUseCase(IRepository<Possui> repository, AppDbContext context)
         {
             _repository = repository;
             _context = context;
+        }
+
+        public PossuiUseCase(IRepository<Possui> @object)
+        {
+            this.@object = @object;
         }
 
         public async Task<CreatePossuiResponse> CreatePossuiAsync(CreatePossuiRequest request)

@@ -1808,17 +1808,17 @@
             "type": "string",
             "nullable": true
           },
-          "avaliacoes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CreateAvaliacaoResponse"
-            },
-            "nullable": true
-          },
           "habilidades": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CreateHabilidadeResponse"
+            },
+            "nullable": true
+          },
+          "avaliacoes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateAvaliacaoResponse"
             },
             "nullable": true
           }

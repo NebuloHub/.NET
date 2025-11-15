@@ -26,8 +26,9 @@ public class UsuarioUseCaseTests
         _useCase = new UsuarioUseCase(_repositoryMock.Object, _context);
     }
 
+    // DeveCriarUsuarioComSucesso
     [Fact]
-    public async Task CreateUsuario_DeveCriarUsuarioComSucesso()
+    public async Task CreateUsuario()
     {
         // Arrange
         var request = new CreateUsuarioRequest

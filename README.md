@@ -123,20 +123,19 @@ cd NebuloHub.NET
     http://localhost:5100/health-ui
 ```
 
-- Em produção
- ```bash
-    http://localhost:5000/health-ui
-```
-
-- Ou 
  ```bash
     http://localhost:5100/health
 ```
 
-- Em produção
+- Ou, 5000 para produção 
  ```bash
     http://localhost:5000/health
 ```
+
+ ```bash
+    http://localhost:5000/health-ui
+```
+
 
 - Foi utilizado somente testes unitarios, para rodar voce pode ir no terminal
 
@@ -144,10 +143,23 @@ cd NebuloHub.NET
     dotnet test
 ```
 
-- Ou
+- Ou pelo gerenciador de testes
 
 <img width="1059" height="700" alt="image" src="https://github.com/user-attachments/assets/c903e400-5c72-47d4-9574-b2c290fbd96f" />
 
+---
+
+Caminho para o dll e .exe
+
+```bash
+    \.NET\NebuloHub\bin\Debug\net8.0\NebuloHub.dll
+```
+
+```bash
+    \.NET\NebuloHub\bin\Debug\net8.0\NebuloHub.exe
+```
+
+---
 
 ### Nosso Professor:
 

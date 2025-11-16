@@ -24,15 +24,17 @@ O sistema simula uma plataforma de controle de dados, com integração a banco d
 
 ## 📌 Rotas Disponíveis
 
-Todas as rotas estão disponíveis no controlador, por Exemplo:
+Todas as rotas estão disponíveis no controlador, por Exemplo: usuario, startup, avaliacao, habilidade, possui
 
 | Método | Rota                   | Descrição                             |
 |--------|------------------------|---------------------------------------|
-| GET    | `/api/v2/Usuario`      | Retorna todos os usuarios por pagina  |
-| GET    | `/api/v2/Usuario/{cpf}`   | Retorna um usuario por CPF            |
-| POST   | `/api/v2/Motorista`       | Cria um novo usuario                  |
-| PUT    | `/api/v2/Usuario/{cpf}`   | Atualiza um usuario existente         |
-| DELETE | `/api/v1/Usuario/{cpf}`   | Remove um usuario do sistema          |
+| GET    | `/api/v2/usuario`      | Retorna todos os usuarios por pagina  |
+| GET    | `/api/v2/usuario/{cpf}`   | Retorna um usuario por CPF            |
+| POST   | `/api/v2/usuario`       | Cria um novo usuario                  |
+| PUT    | `/api/v2/usuario/{cpf}`   | Atualiza um usuario existente         |
+| DELETE | `/api/v1/usuario/{cpf}`   | Remove um usuario do sistema          |
+
+
 
 ---
 
@@ -52,6 +54,7 @@ Essa abordagem permite **maior testabilidade**, **baixo acoplamento** e facilita
 ## 🧰 Tecnologias Utilizadas
 
 - **.NET 8.0**
+- **.NET 8 Runtime**
 - **Entity Framework Core 8**
   - `Microsoft.EntityFrameworkCore`
   - `Microsoft.EntityFrameworkCore.Design`
@@ -89,6 +92,10 @@ cd NebuloHub.NET
 ### Entrar no visual studio e selecionar o projeto
 
 - Apertar run para executar o projeto
+ ```bash
+    http://localhost:5100/swagger
+```
+
 
 - Selecionar a versão que você deseja testar, a versão 2 possui todos os Cruds de todas as Entidades
   <img width="1351" height="104" alt="image" src="https://github.com/user-attachments/assets/cbb2183b-0b96-4b75-b852-d4fe9ef98aa7" />
@@ -116,9 +123,19 @@ cd NebuloHub.NET
     http://localhost:5100/health-ui
 ```
 
+- Em produção
+ ```bash
+    http://localhost:5000/health-ui
+```
+
 - Ou 
  ```bash
     http://localhost:5100/health
+```
+
+- Em produção
+ ```bash
+    http://localhost:5000/health
 ```
 
 - Foi utilizado somente testes unitarios, para rodar voce pode ir no terminal

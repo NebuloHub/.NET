@@ -28,9 +28,8 @@ namespace NebuloHub.Domain.Entity
 
         }
 
-        public void Atualizar(string cpf, string nome, string email, string senha, Role role, long? telefone)
+        public void Atualizar(string nome, string email, string senha, Role role, long? telefone)
         {
-            CPF = cpf;
             Nome = nome;
             Email = email;
             Senha = senha;

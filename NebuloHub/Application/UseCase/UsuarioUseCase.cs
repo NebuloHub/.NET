@@ -96,7 +96,6 @@ namespace NebuloHub.Application.UseCase
             if (usuario == null) return false;
 
             usuario.Atualizar(
-                request.CPF,
                 request.Nome,
                 request.Email,
                 request.Senha,

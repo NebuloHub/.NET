@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NebuloHub.Application.DTOs.Request;
 using NebuloHub.Application.UseCase;
 
@@ -18,9 +19,10 @@ namespace NebuloHub.Controllers.v2
         }
 
         /// <summary>
-        /// Chama a procedure pkg_funcao2_validacao.analisar_startup e retorna o resultado do CLOB.
+        /// Chama a procedure pkg_funcao2_validacao.analisar_startup e retorna o resultado.
         /// </summary>
         [HttpPost("analisar")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> AnalisarStartup([FromBody] AnalisarStartupRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.CNPJ))

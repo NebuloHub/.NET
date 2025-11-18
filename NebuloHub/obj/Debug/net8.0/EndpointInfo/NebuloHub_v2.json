@@ -10,7 +10,7 @@
         "tags": [
           "Analise das Startups"
         ],
-        "summary": "Chama a procedure pkg_funcao2_validacao.analisar_startup e retorna o resultado do CLOB.",
+        "summary": "Chama a procedure pkg_funcao2_validacao.analisar_startup e retorna o resultado.",
         "requestBody": {
           "content": {
             "application/json": {

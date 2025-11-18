@@ -2,6 +2,6 @@
 {
     public class AnalisarStartupResponse
     {
-        public string Resultado { get; set; } = string.Empty;
+        public object Resultado { get; set; } = default!;
     }
 }

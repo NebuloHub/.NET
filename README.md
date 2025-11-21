@@ -28,11 +28,11 @@ Todas as rotas estão disponíveis no controlador, por Exemplo: usuario, startup
 
 | Método | Rota                   | Descrição                             |
 |--------|------------------------|---------------------------------------|
-| GET    | `/api/v2/usuario`      | Retorna todos os usuarios por pagina  |
-| GET    | `/api/v2/usuario/{cpf}`   | Retorna um usuario por CPF            |
-| POST   | `/api/v2/usuario`       | Cria um novo usuario                  |
-| PUT    | `/api/v2/usuario/{cpf}`   | Atualiza um usuario existente         |
-| DELETE | `/api/v1/usuario/{cpf}`   | Remove um usuario do sistema          |
+| GET    | `/api/v2/habilidade`      | Retorna todos as habilidade por pagina  |
+| GET    | `/api/v2/habilidade/{id}`   | Retorna uma habilidade por ID            |
+| POST   | `/api/v2/habilidade`       | Cria uma nova habilidade                  |
+| PUT    | `/api/v2/habilidade/{id}`   | Atualiza uma habilidade existente         |
+| DELETE | `/api/v2/habilidade/{id}`   | Remove uma habilidade do sistema          |
 
 
 
@@ -103,7 +103,7 @@ cd NebuloHub.NET
 
 - O projeto possui nivel de acessos então para algumas coisas você precisa ter autorização de Admin
 
-- Selecione o post do crud de Usuarios
+- Selecione o post do crud de Auth
   <img width="1325" height="153" alt="image" src="https://github.com/user-attachments/assets/7337adb0-0ebc-4422-b78b-ffb19b2ab914" />
   
    ```bash

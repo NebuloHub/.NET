@@ -24,7 +24,7 @@ O sistema simula uma plataforma de controle de dados, com integração a banco d
 
 ## 📌 Rotas Disponíveis
 
-Todas as rotas estão disponíveis no controlador, por Exemplo: usuario, startup, avaliacao, habilidade, possui
+Todas as rotas estão disponíveis no controlador na versão 2 (que pode ser encontrada assim: api/v2/rota), por Exemplo: usuario, startup, avaliacao, habilidade, possui
 
 | Método | Rota                   | Descrição                             |
 |--------|------------------------|---------------------------------------|
@@ -38,6 +38,10 @@ Todas as rotas estão disponíveis no controlador, por Exemplo: usuario, startup
 ## Link Deploy
 
 http://webapp-nebulohub.azurewebsites.net/
+
+🚨Testes desse link terão que ser feitos no postman devido ao swagger só estar liberado no desenvolvimento, banco utilizado no azure é o sqlServer, devido ao um requisito do professor de DevOps, no caso é o mesmo projeto só mundando o banco de dados🚨
+
+para testa é necessario http://webapp-nebulohub.azurewebsites.net/api/v2/endpoint
 
 ---
 
@@ -126,18 +130,12 @@ cd NebuloHub.NET
     http://localhost:5100/health-ui
 ```
 
+- Ou 
+
  ```bash
     http://localhost:5100/health
 ```
 
-- Ou, 5000 para produção 
- ```bash
-    http://localhost:5000/health
-```
-
- ```bash
-    http://localhost:5000/health-ui
-```
 
 
 - Foi utilizado somente testes unitarios, para rodar voce pode ir no terminal
@@ -152,17 +150,6 @@ cd NebuloHub.NET
 
 ---
 
-Caminho para o dll e .exe
-
-```bash
-    \.NET\NebuloHub\bin\Debug\net8.0\NebuloHub.dll
-```
-
-```bash
-    \.NET\NebuloHub\bin\Debug\net8.0\NebuloHub.exe
-```
-
----
 
 ### Nosso Professor:
 

@@ -35,6 +35,9 @@ Todas as rotas estão disponíveis no controlador, por Exemplo: usuario, startup
 | DELETE | `/api/v2/habilidade/{id}`   | Remove uma habilidade do sistema          |
 
 
+## Link Deploy
+
+http://webapp-nebulohub.azurewebsites.net/
 
 ---
 
@@ -89,7 +92,7 @@ cd NebuloHub.NET
 
 ---
 
-### Entrar no visual studio e selecionar o projeto
+### Entrar no visual studio e selecionar o projeto, swagger somente liberado para o ambiente de desenvolvimento
 
 - Apertar run para executar o projeto
  ```bash
